@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Dieta</title>
+    <link rel="stylesheet" href="styletest.css">
+    <script language="javascript">
+        function verificaAciertos() {
+            var c = 0;
+            var faltantes = 0;
+            for (var i = 0; i < document.forms[0].elements.length; i += 3) {
+                var respondida = false;
+                for (var j = 0; j < 3; j++) {
+                    if (document.forms[0].elements[i + j].checked) {
+                        respondida = true;
+                        if (document.forms[0].elements[i + j].value == "correcto") {
+                            c++;
+                        }
+                        break;
+                    }
+                }
+                if (!respondida) {
+                    faltantes++;
+                }
+            }
+
+            if (faltantes > 0) {
+                alert("Te falta(n) " + faltantes + " pregunta(s) por contestar.");
+            } else {
+                alert("Aciertos: " + c);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="insert_test.php" method="POST" class="test-form">
+        <h2>Test sobre Dieta</h2>
+
+        
+        1. ¿Con qué frecuencia consumes frutas y verduras? <br>
+        <input type="radio" name="preg1" value="correcto">Diariamente<br>
+        <input type="radio" name="preg1" value="incorrecto">Semanalmente<br>
+        <input type="radio" name="preg1" value="incorrecto">Raramente<br>
+
+
+        2. ¿Con qué frecuencia consumes comida rápida? <br>
+        <input type="radio" name="preg2" value="incorrecto">Diariamente<br>
+        <input type="radio" name="preg2" value="correcto">Mensualmente<br>
+        <input type="radio" name="preg2" value="incorrecto">Nunca<br>
+
+
+        3. ¿Bebes agua regularmente en lugar de bebidas azucaradas? <br>
+        <input type="radio" name="preg3" value="correcto">Sí<br>
+        <input type="radio" name="preg3" value="incorrecto">No<br>
+        <input type="radio" name="preg3" value="incorrecto">A veces<br>
+
+        
+        4. ¿Consumes productos lácteos regularmente? <br>
+        <input type="radio" name="preg4" value="correcto">Sí<br>
+        <input type="radio" name="preg4" value="incorrecto">No<br>
+        <input type="radio" name="preg4" value="incorrecto">Raramente<br>
+
+        5. ¿Con qué frecuencia comes alimentos procesados? <br>
+        <input type="radio" name="preg5" value="incorrecto">Frecuentemente<br>
+        <input type="radio" name="preg5" value="correcto">Ocasionalmente<br>
+        <input type="radio" name="preg5" value="incorrecto">Nunca<br>
+
+        
+        6. ¿Cuántas veces al día haces comidas? <br>
+        <input type="radio" name="preg6" value="incorrecto">1-2<br>
+        <input type="radio" name="preg6" value="correcto">3-5<br>
+        <input type="radio" name="preg6" value="incorrecto">Más de 5<br>
+
+        
+        7. ¿Sueles evitar el consumo de azúcares añadidos? <br>
+        <input type="radio" name="preg7" value="correcto">Sí<br>
+        <input type="radio" name="preg7" value="incorrecto">No<br>
+        <input type="radio" name="preg7" value="incorrecto">A veces<br>
+
+        
+        8. ¿Consumes pescado al menos una vez por semana? <br>
+        <input type="radio" name="preg8" value="correcto">Sí<br>
+        <input type="radio" name="preg8" value="incorrecto">No<br>
+        <input type="radio" name="preg8" value="incorrecto">Raramente<br>
+
+        
+        9. ¿Incluyes proteína en cada comida que consumes? <br>
+        <input type="radio" name="preg9" value="correcto">Sí<br>
+        <input type="radio" name="preg9" value="incorrecto">No<br>
+        <input type="radio" name="preg9" value="incorrecto">A veces<br>
+
+        
+        10. ¿Con qué frecuencia te saltas el desayuno? <br>
+        <input type="radio" name="preg10" value="correcto">Nunca<br>
+        <input type="radio" name="preg10" value="incorrecto">A veces<br>
+        <input type="radio" name="preg10" value="incorrecto">Frecuentemente<br>
+
+        <input type="button" value="Verificar aciertos" onclick="verificaAciertos()">
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
